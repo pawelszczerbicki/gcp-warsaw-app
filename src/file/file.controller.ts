@@ -9,6 +9,8 @@ export class FileController {
     this.router.get('/file', this.file)
   }
 
-  file = (req: Request, res: Response) => this.fileService.fetch().then(r => res.json(r));
+  file = (req: Request, res: Response) => this.fileService.fetch()
+      .then(r => res.json(r))
+      .catch(e => res.json({err: 'error'}));
 }
 
